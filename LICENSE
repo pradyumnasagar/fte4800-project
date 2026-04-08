@@ -1,0 +1,63 @@
+GNU LESSER GENERAL PUBLIC LICENSE
+Version 2.1, February 1999
+
+Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+[This is the first released version of the Lesser GPL. It also counts
+as the successor of the GNU Library Public License, version 2, hence
+the version number 2.1.]
+
+Preamble
+
+The licenses for most software are designed to take away your
+freedom to share and change it. By contrast, the GNU General Public
+Licenses are intended to guarantee your freedom to share and change
+free software--to make sure the software is free for all its users.
+
+This license, the Lesser General Public License, applies to some
+specially designated software packages--typically libraries--of the
+Free Software Foundation and to any other programs whose authors commit to
+using it. You can use it for those programs, too; we also assure that
+for the libraries themselves, we need to provide certain rights.
+
+When we speak of free software, we are referring to freedom of use,
+not price. Our General Public Licenses are designed to make sure that
+you have the freedom to distribute copies of free software (and charge
+for this service if you wish); that you receive source code or can get
+it if you want it; that you can change the software and use pieces of
+it in new free programs; and that you know you can do these things.
+
+To protect your rights, we need to make restrictions that forbid anyone
+to deny you these rights or to ask you to surrender the rights. These
+restrictions translate to certain responsibilities for you if you
+distribute copies of the library.
+
+If you distribute copies of the library, whether gratis or for a fee,
+you must give the recipients all the rights that we gave you. You must
+make sure that they, too, receive or can get the source code. If you
+link a "work that uses the Library" with the library to produce a work
+containing portions of the library, then your rights above the library
+are balanced: you must make sure that they too, receive or can get the
+source code.
+
+We protect your rights with a combination of two: we give you the
+right to use the library for non-commercial purposes and to propagate
+that and works based on it.
+
+For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software. For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, with the date of any change.
+
+**FTE4800 Driver Specific**
+
+The FTE4800 fingerprint sensor driver is based on reverse engineering
+of the Windows UMDF driver (ftWbioUmdfDriverV2.dll). All protocol
+knowledge was derived from static analysis of the binary.
+
+This driver is distributed under LGPL-2.1-or-later to match the
+libfprint project's licensing.
