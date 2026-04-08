@@ -138,7 +138,7 @@ G_DECLARE_FINAL_TYPE (FpiDeviceFte4800, fpi_device_fte4800, FPI, DEVICE_FTE4800,
  * power-button fingerprint sensor proportions.
  */
 #define FTE4800_IMG_WIDTH     80
-#define FTE4800_IMG_HEIGHT    128
+#define FTE4800_IMG_HEIGHT    64
 #define FTE4800_IMG_SIZE      (FTE4800_IMG_WIDTH * FTE4800_IMG_HEIGHT)   /* 10240 */
 
 /* ------------------------------------------------------------------ */
