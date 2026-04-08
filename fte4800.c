@@ -571,6 +571,7 @@ enum fte4800_capture_state {
   FTE4800_CAPT_WRITE_FDT_REG,   /* write16(0x1801, FDT_val)                    */
   FTE4800_CAPT_WRITE_SCAN_ARM,  /* write16(0x1800, 0x4FFE)  arm scan           */
   FTE4800_CAPT_MODE_SCAN,       /* mode3: image scan [0xC4 0x3B 0x00]          */
+  FTE4800_CAPT_WRITE_REG_180C,  /* DLL writes 0x180C - missing step            */
   FTE4800_CAPT_POLL_STATUS,     /* read status 0x80, wait for 0x54 (max 10x)   */
   FTE4800_CAPT_TRIGGER,         /* write16(0x1800, 0x4FFF) trigger uncondit.    */
   FTE4800_CAPT_READ_IMAGE,      /* check status before FIFO read              */
@@ -835,6 +836,20 @@ fte4800_capture_ssm_handler (FpiSsm *ssm, FpDevice *dev)
       fp_dbg ("<capture> >>> SENDING MODE3 (image scan) <<<");
       usleep (10 * 1000);
       xfer = fte4800_xfer_mode (self, FTE4800_MODE_IMG_SCAN);
+      xfer->ssm = ssm;
+      fpi_spi_transfer_submit (xfer, fpi_device_get_cancellable (dev),
+                                fpi_ssm_spi_transfer_cb, NULL);
+      return;
+
+    case FTE4800_CAPT_WRITE_REG_180C:
+      /*
+       * DLL writes to 0x180C between mode3 and poll.
+       * At 0x180012e2d: mov edi, 0x180c
+       * At 0x180012e37: call write16(0x180c, computed_value)
+       * The computed value comes from compute_func with various parameters.
+       */
+      fp_dbg ("<capture> DLL writes 0x180C - adding missing step");
+      xfer = fte4800_xfer_write16 (self, 0x180C, 0x0006);
       xfer->ssm = ssm;
       fpi_spi_transfer_submit (xfer, fpi_device_get_cancellable (dev),
                                 fpi_ssm_spi_transfer_cb, NULL);
