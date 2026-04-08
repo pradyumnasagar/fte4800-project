@@ -1,0 +1,12 @@
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+Module.symvers
+modules.order
+FTE4800_PROJECT_SUMMARY.md
+FTE4800_HANDOFF.md
+DLL_ANALYSIS_TAKEOUT.md
+PROJECT_TAKEOUT.md
